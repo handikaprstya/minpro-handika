@@ -54,7 +54,7 @@ import { MyBlog } from "./components/myBlog";
     { path: "/register", element: <RegisterPage/> },
     { path: "/verification/:token", element: <Validation/> },
     { path: "/verification-change-email/:token", element: <Validation/> },
-    { path: "/userLogin", element: <UserLogin/> },
+    { path: "/login", element: <UserLogin/> },
     {path: "/phoneLogin", element: <PhoneLogin/> },
     { path: "/reset-password/:token", element: <ResetPsw/> },
     { path: "/pswForgot", element: <ForgotPsw/> },

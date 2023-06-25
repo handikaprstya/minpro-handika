@@ -56,7 +56,7 @@ export const RegisterPage = () => {
           },
         }
       );
-      navigate("/userLogin");
+      navigate("/login");
       console.log(response.data);
     } catch (err) {
       console.log(err);
@@ -196,7 +196,7 @@ export const RegisterPage = () => {
               <Button colorScheme="yellow" size="lg" width="full" type="submit" fontFamily={"mono"}>
                 Sign up
               </Button>
-              <Link href="login">
+              <Link href="/login">
               <Text fontWeight={'semibold'} fontFamily={"mono"}> Have account? Login</Text>
               </Link>
             </Box>

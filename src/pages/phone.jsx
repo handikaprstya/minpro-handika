@@ -155,7 +155,7 @@ export const PhoneLogin = () => {
                       Login with email <ExternalLinkIcon mx="2px" />
                       </Text>
                     </Link>
-                    <Link href="/UserLogin" isExternal fontWeight={'semibold'} color={"black"} mt={'5%'}>
+                    <Link href="/login" isExternal fontWeight={'semibold'} color={"black"} mt={'5%'}>
                       Login with username <ExternalLinkIcon mx="2px" />
                     </Link>
                   </Flex>

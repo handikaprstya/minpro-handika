@@ -25,7 +25,7 @@ import {
     const navigate = useNavigate();
     const onChangeIt = () => {
       localStorage.removeItem("token");
-      navigate("/userLogin");
+      navigate("/login");
     };
   
     const handleSubmit = async (data) => {

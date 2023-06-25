@@ -334,23 +334,22 @@ export const Navbar = () => {
         border={'8px solid #f5db1b'}
         boxShadow={'dark-lg'}
         fontFamily={'mono'}
+        
       >
         <Flex alignItems="center">
           <Text fontSize="2xl" fontWeight="bold">
-            <Link onClick={() => handleClick("/")} textColor={'#f5db1b'}>My Blog</Link>
+            <Link onClick={() => handleClick("/")} textShadow={'2px 1px black'} textColor={'#f5db1b'}>My Blog</Link>
           </Text>
         </Flex>
 
         {token ? (
           
-          <Box border={'2px solid black'} w= '70%'> 
-            
+          <Box w='60%' h={'auto'}> 
             <Box>
-              <Link>
-              <Flex color={'black'} gap={'5'} justifyContent={'center'}>Search Page 
-              <Flex color={'black'} justifyContent={'center'}>Search Page</Flex>
-              </Flex>
-              </Link>
+            <HStack position={'absolute'} w='80%' fontSize={'2xl'} justify={'space-around'}>
+              <Link color={'black'} mt={'20px'} onClick={() => handleClick("/createBlog")}>Create blog</Link>
+            </HStack>
+
               <Link 
                 onClick={() => handleClick("/profile")}
                 mr={4}

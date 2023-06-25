@@ -29,11 +29,10 @@ export const DetailPage = () => {
             <Heading
             mb={5}
             textAlign={"center"}
-            borderRadius="full"
             as="h1"
             size="xl"
-            color="white"
-            bg="blue.700"
+            color="#f5db1b"
+            textShadow={'2px 2px black'}
             fontWeight="bold"    
             fontFamily={'mono'}
             >
@@ -53,7 +52,7 @@ export const DetailPage = () => {
             fontFamily={'mono'}
           >
 
-            <Heading>{data?.title}</Heading>
+            <Heading fontFamily={'mono'}>{data?.title}</Heading>
           </Box>
           <Box
             p={"2%"}
@@ -87,8 +86,6 @@ export const DetailPage = () => {
           boxShadow="lg"
           >
             <Text>{data?.content}</Text>
-
-
           </Box>
           <Like />
             </Stack>
