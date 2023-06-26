@@ -2,8 +2,6 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { ForgotPsw } from "./pages/forgotpsw";
 import { RegisterPage } from "./pages/register";
 import { LandingPage } from "./pages/main";
-// import { Footer } from "./components/footer";
-// import {Carousel} from "./components/carousel";
 import { Contact } from "./pages/contact";
 import { EmailPage } from "./pages/email";
 import { PhoneLogin } from "./pages/phone";
@@ -15,7 +13,6 @@ import { setValue } from "./redux/userSlice";
 import { useEffect } from "react";
 import { ResetPsw } from "./pages/newPassword";
 import { NavbarPage } from "./pages/NavbarPage";
-
 import { CreateBlog } from "./pages/createBlog";
 import { BlogDetail } from "./pages/blogDetail";
 import { SearchResult } from "./pages/searchResult";
@@ -41,14 +38,9 @@ import { MyBlog } from "./components/myBlog";
 
 
 
-    // {path:"/", element:<LandingPage/>},
-    // {path:"/footer", element: <Footer/>},
-    // {path:"/carousel", element: <Carousel/>},
        {path:"/email", element:<EmailPage/>},
        {path:"/phone", element:<PhoneLogin/>},
-    // {path:"/verification/:token", element:<Validation/>},
-    // {path:"/register", element:<RegisterPage/>},
-    // {path:"/reset-password/:token", element:<ResetPsw/>},
+
 
 
     { path: "/register", element: <RegisterPage/> },

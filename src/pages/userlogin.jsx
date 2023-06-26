@@ -9,6 +9,7 @@ import {
   Heading,
   Input,
   Link,
+  useToast,
 } from "@chakra-ui/react";
 import Axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -20,6 +21,7 @@ import { setValue } from "../redux/userSlice";
 
 export const UserLogin = () => {
   const navigate = useNavigate();
+  const toast = useToast()
   const dispatch = useDispatch();
   const onLogin = async (data) => {
     try {
@@ -33,8 +35,24 @@ export const UserLogin = () => {
         response.data.isAccountExist;
       dispatch(setValue({ username, email, phone, imgProfile }));
       console.log(response.data.isAccountExist);
-      navigate("/");
+      toast({
+        title: "Login Success",
+        description: "You have successfully logged in.",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
     } catch (err) {
+      toast({
+        title: "Login Error",
+        description: "An error occurred during login.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
       console.log(err);
     }
   };

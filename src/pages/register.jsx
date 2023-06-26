@@ -7,7 +7,8 @@ import {
   Heading,
   Input,
   Text, 
-  Link
+  Link,
+  useToast
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -18,6 +19,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export const RegisterPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const toast = useToast()
   const { token } = useParams();
   const SeePsw = () => {
     setShowPassword(!showPassword);
@@ -56,10 +58,26 @@ export const RegisterPage = () => {
           },
         }
       );
-      navigate("/login");
+      toast({
+        title:"Verify account",
+        description: "Please check your email",
+        status:"success",
+        duration: 2000,
+        isClosable: true,
+      });
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
       console.log(response.data);
     } catch (err) {
       console.log(err);
+      toast({
+        title:"Error",
+        description:"An error occurred while creating the blog.",
+        status:"error",
+        duration: 2000,
+        isClosable: true,
+      });
     }
   };
   return (
