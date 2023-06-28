@@ -378,7 +378,7 @@ export const Navbar = () => {
                 Sign Up
               </Link>
               <Link
-                onClick={() => handleClick("/userLogin")}
+                onClick={() => handleClick("/login")}
                 mr={4}
                 align={"center"}
                 textColor={'black'}
