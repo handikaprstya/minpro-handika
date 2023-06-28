@@ -346,8 +346,11 @@ export const Navbar = () => {
           
           <Box w='60%' h={'auto'}> 
             <Box>
-            <HStack position={'absolute'} w='80%' fontSize={'2xl'} justify={'space-around'}>
-              <Link color={'black'} mt={'20px'} onClick={() => handleClick("/createBlog")}>Create blog</Link>
+            <HStack position={'absolute'} w='70%'  fontSize={'xl'} justify={'space-around'}>
+              <Link color={'black'} mt={'20px'} ml={"24vh"} onClick={() => handleClick("/createBlog")}>Create blog</Link>
+            </HStack>
+            <HStack position={'absolute'} w='35%'  fontSize={'xl'} justify={'space-evenly'} >
+              <Link color={'black'} mt={'20px'} mr='48vh'  onClick={() => handleClick("/detailPage")}>Blog Detail</Link>
             </HStack>
 
               <Link 

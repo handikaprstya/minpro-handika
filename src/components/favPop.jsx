@@ -60,7 +60,7 @@ export const FavPop = () => {
       maxWidth="500px"
       borderWidth={"5px"}
       borderRadius="md"
-      boxShadow="lg"
+      boxShadow="2px 4px black"
     >
       <Tabs isFitted variant="enclosed" cursor={"pointer"}>
         <TabList mb="1em">

@@ -52,7 +52,7 @@ export const DetailPage = () => {
             fontFamily={'mono'}
           >
 
-            <Heading fontFamily={'mono'}>{data?.title}</Heading>
+            <Heading fontSize={'xl'} fontFamily={'mono'}>{data?.title}</Heading>
           </Box>
           <Box
             p={"2%"}

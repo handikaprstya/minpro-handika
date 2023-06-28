@@ -14,7 +14,6 @@ import { useEffect } from "react";
 import { ResetPsw } from "./pages/newPassword";
 import { NavbarPage } from "./pages/NavbarPage";
 import { CreateBlog } from "./pages/createBlog";
-import { BlogDetail } from "./pages/blogDetail";
 import { SearchResult } from "./pages/searchResult";
 import { DetailPage } from "./pages/detailPage";
 import { UserLogin } from "./pages/userlogin";
@@ -29,7 +28,6 @@ import { MyBlog } from "./components/myBlog";
       { path: "/", element: <LandingPage/> },
       { path: "/profile", element: <ProfilePage/> },
       { path: "/createBlog", element: <CreateBlog/> },
-      { path: "/blogDetail", element: <BlogDetail/> },
       { path: "/searchResult", element: <SearchResult/> },      
       { path: "/detailPage/:id", element: <DetailPage/> },
       {path:"/contact", element:<Contact/>},
@@ -38,16 +36,13 @@ import { MyBlog } from "./components/myBlog";
 
 
 
-       {path:"/email", element:<EmailPage/>},
-       {path:"/phone", element:<PhoneLogin/>},
-
-
-
+    { path:"/email", element:<EmailPage/>},
+    { path:"/phone", element:<PhoneLogin/>},
     { path: "/register", element: <RegisterPage/> },
     { path: "/verification/:token", element: <Validation/> },
     { path: "/verification-change-email/:token", element: <Validation/> },
     { path: "/login", element: <UserLogin/> },
-    {path: "/phoneLogin", element: <PhoneLogin/> },
+    { path: "/phoneLogin", element: <PhoneLogin/> },
     { path: "/reset-password/:token", element: <ResetPsw/> },
     { path: "/pswForgot", element: <ForgotPsw/> },
     { path: "/editProfile", element: <EditProfile/> },
