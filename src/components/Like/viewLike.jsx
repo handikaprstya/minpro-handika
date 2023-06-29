@@ -88,8 +88,8 @@ export const ViewLike = () => {
                   <Image
                     src={`https://minpro-blog.purwadhikabootcamp.com/${data?.imageURL}`}
                   />
-                  {/* {blog.Blog.imageUrl} */}
-                  <Heading>{blog.Blog.title}</Heading>
+                  {blog.Blog.imageUrl}
+                  {/* <Heading>{blog.Blog.title}</Heading> */}
                   {blog.Blog.content}
                 </Box>
               </Box>

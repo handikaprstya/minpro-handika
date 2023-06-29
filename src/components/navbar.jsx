@@ -339,19 +339,21 @@ export const Navbar = () => {
         <Flex alignItems="center">
           <Text fontSize="2xl" fontWeight="bold">
             <Link onClick={() => handleClick("/")} textShadow={'2px 1px black'} textColor={'#f5db1b'}>My Blog</Link>
+            <Spacer/>
           </Text>
-        </Flex>
+          </Flex>
 
         {token ? (
           
-          <Box w='60%' h={'auto'}> 
+          <Box w='60%' h={'full'}> 
             <Box>
-            <HStack position={'absolute'} w='70%'  fontSize={'xl'} justify={'space-around'}>
-              <Link color={'black'} mt={'20px'} ml={"24vh"} onClick={() => handleClick("/createBlog")}>Create blog</Link>
+            <HStack position={'absolute'}  w='70%'  fontSize={'xl'} justify={'space-around'}>
+              <Link color={'black'}  ml={'20vh'} mt={'3%'} onClick={() => handleClick("/createBlog")}>Create blog</Link>
             </HStack>
-            <HStack position={'absolute'} w='35%'  fontSize={'xl'} justify={'space-evenly'} >
-              <Link color={'black'} mt={'20px'} mr='48vh'  onClick={() => handleClick("/detailPage")}>Blog Detail</Link>
+            <HStack position={'absolute'}  w='35%'  fontSize={'xl'} justify={'space-evenly'} >
+              <Link color={'black'} ml='50' mt={'5%'} onClick={() => handleClick("/searchResult")}>Search page</Link>
             </HStack>
+
 
               <Link 
                 onClick={() => handleClick("/profile")}

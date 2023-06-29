@@ -78,8 +78,8 @@ export const FavPop = () => {
                   <Box>
                     <Text                     
                       overflow={"hidden"}
-                      // whiteSpace={"nowrap"}
-                      // textOverflow={"ellipsis"}
+                      whiteSpace={"nowrap"}
+                      textOverflow={"ellipsis"}
                       maxWidth={"auto"}
                       fontSize={"10px"}
                     >

@@ -19,7 +19,8 @@ export const SearchResult = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
   const [categories, setCategories] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const navigate = useNavigate()
+  const [sortOrder, setSortOrder] = useState(""); // New state variable
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchCategories();
@@ -44,6 +45,7 @@ export const SearchResult = () => {
           params: {
             search: searchTerm,
             category: selectedCategory,
+            sort: sortOrder, // Include the sort order in the API request
           },
         }
       );
@@ -62,6 +64,11 @@ export const SearchResult = () => {
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
+    setSortOrder("");
+  };
+
+  const handleSortOrderChange = (event) => {
+    setSortOrder(event.target.value);
   };
 
   const handleClick = (id) => {
@@ -69,39 +76,59 @@ export const SearchResult = () => {
     window.location.reload();
   };
 
+  const sortResults = () => {
+    const sortedResults = [...searchResults];
+
+    if (sortOrder === "asc") {
+      sortedResults.sort((a, b) => a.createdAt.localeCompare(b.createdAt));
+    } else if (sortOrder === "desc") {
+      sortedResults.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
+    }
+
+    return sortedResults;
+  };
+
   return (
     <Box>
-      <Box p={"5%"}>
-        <Heading
+      <Box p={"2%"}>
+      <Heading
+          maxWidth={'60%'}
+          ml={'20%'}
           textAlign={"center"}
           mb={5}
-          borderRadius="full"
           as="h1"
           size="xl"
           color="white"
-          bg="blue.700"
-          fontWeight="bold"
+          textShadow={'2px 2px black'}
+          bg="#f5db1b"
+          fontWeight="bold" 
+          fontFamily={'mono'}
+          boxShadow={'3px 8px black'}
         >
-          What are you looking for?
+          Search Blog
         </Heading>
+
         <Box color={"white"}>
           <Stack spacing={8}>
             <Center>
               <Box
-                bgColor={"blackAlpha.700"}
-                boxShadow={"0px 0px 10px gray"}
+                mt={'3%'}
+                bgColor={"#f5db1b"}
+                textColor={'black'}
+                boxShadow={"2px 2px  black"}
                 p={"20px"}
-                borderRadius={"20px"}
-                w={"30%"}
+                borderRadius={"2%"}
+                w={"45%"}
+                fontFamily={'mono'}
               >
                 <Flex justifyContent={"center"}>
                   <FormControl>
                     <FormLabel>Search</FormLabel>
                     <Input
-                      color={"white"}
+                      color={"black"}
                       placeholder="Keyword or title"
                       _placeholder={{
-                        color: "white",
+                        color: "black",
                       }}
                       type="text"
                       value={searchTerm}
@@ -114,7 +141,7 @@ export const SearchResult = () => {
                     >
                       <option
                         style={{
-                          backgroundColor: "rgb(135,206,250)",
+                          backgroundColor: "black",
                           border: "0px",
                         }}
                         value=""
@@ -124,7 +151,7 @@ export const SearchResult = () => {
                       {categories.map((category) => (
                         <option
                           style={{
-                            backgroundColor: "rgb(135,206,250)",
+                            backgroundColor: "black",
                             border: "0px",
                           }}
                           key={category.id}
@@ -133,6 +160,37 @@ export const SearchResult = () => {
                           {category.name}
                         </option>
                       ))}
+                    </Select>
+
+                    <FormLabel mt={4}>Sort Order</FormLabel>
+                    <Select value={sortOrder} onChange={handleSortOrderChange}>
+                      <option
+                        value=""
+                        style={{
+                          backgroundColor: "black",
+                          border: "0px",
+                        }}
+                      >
+                        None
+                      </option>
+                      <option
+                        value="asc"
+                        style={{
+                          backgroundColor: "black",
+                          border: "0px",
+                        }}
+                      >
+                        Ascending
+                      </option>
+                      <option
+                        value="desc"
+                        style={{
+                          backgroundColor: "black",
+                          border: "0px",
+                        }}
+                      >
+                        Descending
+                      </option>
                     </Select>
 
                     <Button mt={4} onClick={handleSearch}>
@@ -149,18 +207,19 @@ export const SearchResult = () => {
                 w={"40%"}
                 p={"30px"}
               >
-                {searchResults.map((item,value) => (
+                {sortResults().map((item) => (
                   <Box
                     key={item.id}
-                    onClick={() => handleClick(item.id) }
+                    onClick={() => handleClick(item.id)}
                     cursor={"pointer"}
                     color={"black"}
-                    _hover={{ color: "blue.400", transition: "0.3s" }}
+                    // _hover={{ color: "white", transition: "0.3s" }}
                     mb={"20px"}
                   >
                     <ul>
                       <li>
                         <h3>{item.title}</h3>
+                        <p>Created At: {item.createdAt}</p>
                       </li>
                     </ul>
                   </Box>
